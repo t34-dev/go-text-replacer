@@ -99,3 +99,7 @@ This project is licensed under the ISC License. See the [LICENSE](LICENSE) file 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+Developed with ❤️ by [T34](https://github.com/t34-dev)
