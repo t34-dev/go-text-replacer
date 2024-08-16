@@ -37,7 +37,7 @@ import (
 	"fmt"
 	"log"
 
-	nestedreplacer "github.com/t34-dev/go-text-replacer"
+	textreplacer "github.com/t34-dev/go-text-replacer"
 )
 
 func main() {
@@ -52,9 +52,9 @@ Chapter 1: Introduction to Programming (编程简介)
             - Programming language syntax
 `
 
-	replacer := nestedreplacer.NewFromString(content)
+	replacer := textreplacer.NewFromString(content)
 
-	blocks := []nestedreplacer.Block{
+	blocks := []textreplacer.Block{
 		replacer.CreateBlockFromString("Introduction", "Getting Started with"),
 		replacer.CreateBlockFromString("Programming", "Coding"),
 		replacer.CreateBlockFromString("(算法思维)", "(Algorithmic Thinking)"),
@@ -78,8 +78,8 @@ Chapter 1: Introduction to Programming (编程简介)
 
 ### Functions
 
-- `New(content []byte) *nestedReplacer`: Creates a new instance of nestedReplacer with the given content.
-- `NewFromString(content string) *nestedReplacer`: Creates a new instance of nestedReplacer from a string.
+- `New(content []byte) *textreplacer`: Creates a new instance of textreplacer with the given content.
+- `NewFromString(content string) *textreplacer`: Creates a new instance of textreplacer from a string.
 
 ### Methods
 

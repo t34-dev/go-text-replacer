@@ -1,4 +1,4 @@
-package nestedreplacer
+package textreplacer
 
 import (
 	"bytes"

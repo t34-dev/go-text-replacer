@@ -2,7 +2,7 @@
 // Use of this source code is governed by a MIT-style
 // license that can be found in the LICENSE file.
 
-package nestedreplacer
+package textreplacer
 
 import (
 	"bytes"
@@ -24,27 +24,27 @@ type Position struct {
 	End   int
 }
 
-// nestedReplacer is a structure containing the original content.
-type nestedReplacer struct {
+// textreplacer is a structure containing the original content.
+type textreplacer struct {
 	content []byte
 }
 
-// New creates a new instance of nestedReplacer with the given content.
-func New(content []byte) *nestedReplacer {
-	return &nestedReplacer{
+// New creates a new instance of textreplacer with the given content.
+func New(content []byte) *textreplacer {
+	return &textreplacer{
 		content: content,
 	}
 }
 
-// NewFromString creates a new instance of nestedReplacer from a string.
-func NewFromString(content string) *nestedReplacer {
-	return &nestedReplacer{
+// NewFromString creates a new instance of textreplacer from a string.
+func NewFromString(content string) *textreplacer {
+	return &textreplacer{
 		content: []byte(content),
 	}
 }
 
 // Enter applies replacement blocks to the original content.
-func (n *nestedReplacer) Enter(blocks []Block) ([]byte, error) {
+func (n *textreplacer) Enter(blocks []Block) ([]byte, error) {
 	content := n.content
 	if len(content) == 0 {
 		return nil, nil
@@ -110,7 +110,7 @@ func (n *nestedReplacer) Enter(blocks []Block) ([]byte, error) {
 }
 
 // FindAllPositions finds all positions of the given text in the content.
-func (n *nestedReplacer) FindAllPositions(text []byte) []Position {
+func (n *textreplacer) FindAllPositions(text []byte) []Position {
 	if len(text) == 0 {
 		return nil
 	}
@@ -130,7 +130,7 @@ func (n *nestedReplacer) FindAllPositions(text []byte) []Position {
 }
 
 // FindFirstPosition finds the first position of the given text in the content, starting from the specified index.
-func (n *nestedReplacer) FindFirstPosition(text []byte, startIndex int) *Position {
+func (n *textreplacer) FindFirstPosition(text []byte, startIndex int) *Position {
 	if len(text) == 0 {
 		return nil
 	}
@@ -150,7 +150,7 @@ func (n *nestedReplacer) FindFirstPosition(text []byte, startIndex int) *Positio
 }
 
 // FindLastPosition finds the last position of the given text in the content, starting from the specified index from the end.
-func (n *nestedReplacer) FindLastPosition(text []byte, startIndex int) *Position {
+func (n *textreplacer) FindLastPosition(text []byte, startIndex int) *Position {
 	if len(text) == 0 {
 		return nil
 	}
@@ -166,7 +166,7 @@ func (n *nestedReplacer) FindLastPosition(text []byte, startIndex int) *Position
 }
 
 // CreateBlock creates a block using the given find and replacement text.
-func (n *nestedReplacer) CreateBlock(find, txt []byte) Block {
+func (n *textreplacer) CreateBlock(find, txt []byte) Block {
 	position := n.FindFirstPosition(find, 0)
 	if position == nil {
 		return Block{
@@ -181,7 +181,7 @@ func (n *nestedReplacer) CreateBlock(find, txt []byte) Block {
 }
 
 // RuneToBytePosition converts a position in runes to a position in bytes.
-func (n *nestedReplacer) RuneToBytePosition(runeStart, runeEnd int) (byteStart, byteEnd int) {
+func (n *textreplacer) RuneToBytePosition(runeStart, runeEnd int) (byteStart, byteEnd int) {
 	byteStart = 0
 	for i := 0; i < runeStart && byteStart < len(n.content); i++ {
 		_, size := utf8.DecodeRune(n.content[byteStart:])
@@ -198,7 +198,7 @@ func (n *nestedReplacer) RuneToBytePosition(runeStart, runeEnd int) (byteStart, 
 }
 
 // ByteToRunePosition converts a position in bytes to a position in runes.
-func (n *nestedReplacer) ByteToRunePosition(byteStart, byteEnd int) (runeStart, runeEnd int) {
+func (n *textreplacer) ByteToRunePosition(byteStart, byteEnd int) (runeStart, runeEnd int) {
 	runeStart = 0
 	for i := 0; i < byteStart; {
 		_, size := utf8.DecodeRune(n.content[i:])
@@ -217,7 +217,7 @@ func (n *nestedReplacer) ByteToRunePosition(byteStart, byteEnd int) (runeStart, 
 }
 
 // CreateBlockFromString creates a block using rune positions.
-func (n *nestedReplacer) CreateBlockFromString(findRunes, txtRunes string) Block {
+func (n *textreplacer) CreateBlockFromString(findRunes, txtRunes string) Block {
 	find := []byte(findRunes)
 	txt := []byte(txtRunes)
 	position := n.FindFirstPosition(find, 0)

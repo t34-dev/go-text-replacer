@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	nestedreplacer "github.com/t34-dev/go-text-replacer"
+	textreplacer "github.com/t34-dev/go-text-replacer"
 	"log"
 )
 
@@ -18,7 +18,7 @@ Chapter 1: Introduction to Programming (编程简介)
 `
 
 func main() {
-	replacer := nestedreplacer.NewFromString(content)
+	replacer := textreplacer.NewFromString(content)
 	position := replacer.FindFirstPosition([]byte("Introduction"), 0)
 	if position != nil {
 		fmt.Printf("'Introduction' found at positions %d to %d\n", position.Start, position.End)
@@ -26,7 +26,7 @@ func main() {
 		log.Fatalln("'Introduction' not found")
 	}
 
-	blocks := []nestedreplacer.Block{
+	blocks := []textreplacer.Block{
 		{
 			Start: 12,
 			End:   24,
@@ -42,8 +42,8 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	replacer = nestedreplacer.New(result)
-	result, err = replacer.Enter([]nestedreplacer.Block{
+	replacer = textreplacer.New(result)
+	result, err = replacer.Enter([]textreplacer.Block{
 		replacer.CreateBlock([]byte("Block"), []byte("END")),
 	})
 
