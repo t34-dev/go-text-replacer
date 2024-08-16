@@ -23,17 +23,15 @@ jobs:
       - name: Update README.md badges
         run: |
           current_time=$(date +%s)
-          sed -i 's/\(v=\)[0-9]*/\1'"$current_time"'/g' README.md
+          sed -i 's/\(ver=\)[0-9]*/\1'"$current_time"'/g' README.md
 
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add README.md
-          git diff --quiet && git diff --staged --quiet || git commit -m "Update version to ${{ steps.get_version.outputs.VERSION }}"
+          git commit -m "Update version to ${{ steps.get_version.outputs.VERSION }}"
 
       - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.event.repository.default_branch }}
+        run: |
+          git push origin HEAD:${{ github.event.repository.default_branch }}
