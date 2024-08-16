@@ -16,3 +16,4 @@ debug.log
 
 node_modules/
 /.gradle/
+/coverage.out
