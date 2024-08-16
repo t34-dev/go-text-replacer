@@ -21,7 +21,6 @@ jobs:
         run: go install github.com/mattn/goveralls@latest
 
       - name: Run tests
-#        run: go test -v -coverprofile=coverage.out $(go list ./... | grep -v /example)
         run: make test
 
       - name: Send coverage
