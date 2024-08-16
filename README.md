@@ -1,8 +1,8 @@
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![Coverage Status](https://coveralls.io/repos/github/t34-dev/go-text-replacer/badge.svg?branch=main&ver=1723823044)](https://coveralls.io/github/t34-dev/go-text-replacer?branch=main&ver=1723823044)
-![Go Version](https://img.shields.io/badge/Go-1.22-blue?logo=go&ver=1723823044)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/t34-dev/go-text-replacer?ver=1723823044)
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/t34-dev/go-text-replacer?sort=semver&style=flat&logo=git&logoColor=white&label=Latest%20Version&color=blue&ver=1723823044)
+[![Coverage Status](https://coveralls.io/repos/github/t34-dev/go-text-replacer/badge.svg?branch=main&ver=1723823632)](https://coveralls.io/github/t34-dev/go-text-replacer?branch=main&ver=1723823632)
+![Go Version](https://img.shields.io/badge/Go-1.22-blue?logo=go&ver=1723823632)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/t34-dev/go-text-replacer?ver=1723823632)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/t34-dev/go-text-replacer?sort=semver&style=flat&logo=git&logoColor=white&label=Latest%20Version&color=blue&ver=1723823632)
 
 # Go-Text-Replacer
 
