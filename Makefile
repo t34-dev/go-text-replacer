@@ -1,4 +1,4 @@
-DEV_DIR := $(CURDIR)/.temp
+DEV_DIR := $(CURDIR)
 
 include .make/tag.mk
 include .make/test.mk
